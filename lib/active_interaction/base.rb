@@ -234,8 +234,6 @@ module ActiveInteraction
     # @param input [#to_sym]
     #
     # @return [Boolean]
-    #
-    # @since 2.1.0
     def given?(input, *rest) # rubocop:disable Metrics/CyclomaticComplexity
       filter_level = self.class
       input_level = @_interaction_inputs
