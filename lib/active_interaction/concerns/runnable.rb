@@ -1,4 +1,3 @@
-# coding: utf-8
 # frozen_string_literal: true
 
 module ActiveInteraction
@@ -78,8 +77,8 @@ module ActiveInteraction
             result_or_errors =
               begin
                 execute
-              rescue Interrupt => interrupt
-                interrupt.errors
+              rescue Interrupt => e
+                e.errors
               end
 
             if result_or_errors.is_a?(ActiveInteraction::Errors)
@@ -104,8 +103,7 @@ module ActiveInteraction
       result
     end
 
-    #
-    module ClassMethods
+    module ClassMethods # rubocop:disable Style/Documentation
       def new(*)
         super.tap do |instance|
           {

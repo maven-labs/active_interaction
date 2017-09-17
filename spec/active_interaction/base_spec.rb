@@ -1,5 +1,3 @@
-# coding: utf-8
-
 require 'spec_helper'
 require 'action_controller'
 
@@ -51,7 +49,7 @@ describe ActiveInteraction::Base do
     end
 
     context 'with non-hash inputs' do
-      let(:inputs) { [[:k, :v]] }
+      let(:inputs) { [%i[k v]] }
 
       it 'raises an error' do
         expect { interaction }.to raise_error ArgumentError
@@ -599,9 +597,11 @@ describe ActiveInteraction::Base do
       include_context 'import_filters context', only, except
 
       it 'imports the filters' do
-        expect(described_class.filters).to eql klass.filters
-          .select { |k, _| only.nil? ? true : [*only].include?(k) }
-          .reject { |k, _| except.nil? ? false : [*except].include?(k) }
+        expect(described_class.filters).to eql(
+          klass.filters
+            .select { |k, _| only.nil? ? true : [*only].include?(k) }
+            .reject { |k, _| except.nil? ? false : [*except].include?(k) }
+        )
       end
 
       it 'does not modify the source' do

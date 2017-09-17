@@ -1,5 +1,3 @@
-# coding: utf-8
-
 require 'spec_helper'
 
 describe ActiveInteraction::Runnable do
@@ -107,11 +105,11 @@ describe ActiveInteraction::Runnable do
           context 'using if' do
             it 'yields errors to the if' do
               has_run = false
-              # rubocop:disable Metic/LineLength
+              # rubocop:disable Metrics/LineLength
               WithFailingCompose.set_callback :execute, :after, if: -> { errors.any? } do
                 has_run = true
               end
-              # rubocop:enable Metic/LineLength
+              # rubocop:enable Metrics/LineLength
 
               WithFailingCompose.run
               expect(has_run).to be_truthy
@@ -334,7 +332,7 @@ describe ActiveInteraction::Runnable do
 
         def execute
           compose(WrappableFailingInteraction)
-        rescue
+        rescue StandardError
           @caught_error = true
           raise
         end
