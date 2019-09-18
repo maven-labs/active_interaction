@@ -1,3 +1,7 @@
+# [4.0.0][] (TBD)
+
+## Changed
+
 # [3.7.1][] (2019-03-20)
 
 ## Fixed
@@ -752,6 +756,7 @@ Example.run
 
 - Initial release.
 
+  [4.0.0]: https://github.com/AaronLasseigne/active_interaction/compare/v3.7.1...v4.0.0
   [3.7.1]: https://github.com/AaronLasseigne/active_interaction/compare/v3.7.0...v3.7.1
   [3.7.0]: https://github.com/AaronLasseigne/active_interaction/compare/v3.6.2...v3.7.0
   [3.6.2]: https://github.com/AaronLasseigne/active_interaction/compare/v3.6.1...v3.6.2
