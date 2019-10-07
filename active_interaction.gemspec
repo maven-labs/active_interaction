@@ -38,6 +38,7 @@ Gem::Specification.new do |gem| # rubocop:disable Metrics/BlockLength
 
   {
     'actionpack' => [],
+    'activerecord' => [],
     'benchmark-ips' => ['~> 2.7'],
     'coveralls' => ['~> 0.8'],
     'kramdown' => ['~> 2.1'],
@@ -48,4 +49,5 @@ Gem::Specification.new do |gem| # rubocop:disable Metrics/BlockLength
   }.each do |name, versions|
     gem.add_development_dependency name, *versions
   end
+  gem.add_development_dependency 'sqlite3' unless defined?(JRUBY_VERSION)
 end
