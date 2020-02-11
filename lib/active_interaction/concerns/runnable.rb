@@ -79,7 +79,9 @@ module ActiveInteraction
               begin
                 execute
               rescue Interrupt => interrupt
-                interrupt.errors
+                errs = interrupt.errors
+                errs.backtrace ||= interrupt.backtrace
+                errs
               end
 
             if result_or_errors.is_a?(ActiveInteraction::Errors)
